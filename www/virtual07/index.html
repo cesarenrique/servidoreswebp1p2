@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CORS</title>
+<script>
+function loadDoc() {
+  fetch("http://virtual02.aisi.dtic.ua.es.test")
+  .then(res => res.json())
+  .then(data => { 
+      let ul = document.createElement("ul");
+      data.forEach((item,index) => {
+      		let li=document.createElement("li");
+		li.textContent=item;
+		ul.appendChild(li);
+	});  
+      document.getElementById("demo2").appendChild(ul);
+    
+  });
+  
+}
+</script>
+</head>
+<body>
+<div id="demo">
+<h1>The XMLHttpRequest Object</h1>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+<div id="demo2">
+</div>
+
+</body>
+</html>
